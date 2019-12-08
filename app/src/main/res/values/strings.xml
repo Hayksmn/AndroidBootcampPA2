@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Bootcamp</string>
-    <string name="default_text">Hello World!</string>
-    <string name="default_number">1</string>
-    <string name="input_hint">Enter max score for game</string>
-    <string name="button_label">Update</string>
-    <string name="roll_label">Roll</string>
-    <string name="revert_label">Revert</string>
-    <string name="navbar">navbar</string>
-    <string name="max_score_default">0</string>
+    <string name="btnIncrText">Increment</string>
+    <string name="btnDecrText">Decrement</string>
 </resources>
