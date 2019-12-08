@@ -19,27 +19,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.getting_started)
-//        task1Init()
-//        task2Init()
-//        task3Init()
+        task1Init()
+        task2Init()
+        task3Init()
 
         task4Init()
         task5Init()
     }
 
-//    private fun task1Init() {
-//        updateBtnInit()
-//    }
+    private fun task1Init() {
+        updateBtnInit()
+    }
 
-//    private fun task2Init() {
-//        rollBtnInit()
-//        revertBtnInit()
-//    }
+    private fun task2Init() {
+        rollBtnInitTask2()
+        revertBtnInitTask2()
+    }
 
-//    private fun task3Init() {
-//        rollBtnInit()
-//        revertBtnInit()
-//    }
+    private fun task3Init() {
+        rollBtnInitTask4()
+        resetBtnInitTask4()
+    }
 
     private fun task4Init() {
         player1 = Player("Player1")
@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         currentPlayer = player1
         setScore()
         maxScore.text = "Max Score: $GAME_MAX_SCORE"
-        rollBtnInit()
-        resetBtnInit()
+        rollBtnInitTask4()
+        resetBtnInitTask4()
     }
 
     private fun task5Init() {
@@ -61,97 +61,50 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun updateBtnInit() {
-//        updateBtn.setOnClickListener {
-//            textBox.text = textInput.text
-//            textInput.text.clear()
-//        }
-//        updateBtn.setOnLongClickListener {
-//            textInput.text.clear()
-//            textBox.text = getString(R.string.default_text)
-//            true
-//        }
-//    }
+    private fun updateBtnInit() {
+        updateBtn.setOnClickListener {
+            textBox.text = textInput.text
+            textInput.text.clear()
+        }
+        updateBtn.setOnLongClickListener {
+            textInput.text.clear()
+            textBox.text = getString(R.string.default_text)
+            true
+        }
+    }
 
-//    private fun rollBtnInit() {
-//        /*Sometimes it will look like the number is lagging behind. This is so because
-//        * the sample size is small. Therefore the probability of having the same value as before
-//        * is higher which visually looks like the program is skipping a number when pressing the
-//        * roll button.*/
-//        rollBtn.setOnClickListener {
-//            val side = Random.nextInt(1, 6)
-//            rollHistory.push(numberView.text.toString().toInt())
-//            numberView.text = side.toString()
-//            revertBtn.isEnabled = true
-//            println(rollHistory.toString())
-//        }
-//        rollBtn.setOnLongClickListener {
-//            numberView.text = DEFAULT_DIE_SIDE.toString()
-//            rollHistory.clear()
-//            revertBtn.isEnabled = false
-//            true
-//        }
-//    }
-//
-//    private fun revertBtnInit() {
-//        revertBtn.isEnabled = false
-//        revertBtn.setOnClickListener {
-//            numberView.text = rollHistory.pop().toString()
-//            println(rollHistory.toString())
-//            if (rollHistory.isEmpty()) {
-//                revertBtn.isEnabled = false
-//            }
-//        }
-//    }
+    private fun rollBtnInitTask2() {
+        /*Sometimes it will look like the number is lagging behind. This is so because
+        * the sample size is small. Therefore the probability of having the same value as before
+        * is higher which visually looks like the program is skipping a number when pressing the
+        * roll button.*/
+        rollBtn.setOnClickListener {
+            val side = Random.nextInt(1, 6)
+            rollHistory.push(numberView.text.toString().toInt())
+            numberView.text = side.toString()
+            revertBtn.isEnabled = true
+            println(rollHistory.toString())
+        }
+        rollBtn.setOnLongClickListener {
+            numberView.text = DEFAULT_DIE_SIDE.toString()
+            rollHistory.clear()
+            revertBtn.isEnabled = false
+            true
+        }
+    }
 
+    private fun revertBtnInitTask2() {
+        revertBtn.isEnabled = false
+        revertBtn.setOnClickListener {
+            numberView.text = rollHistory.pop().toString()
+            println(rollHistory.toString())
+            if (rollHistory.isEmpty()) {
+                revertBtn.isEnabled = false
+            }
+        }
+    }
 
-//    private fun rollBtnInit() {
-//        /*Sometimes it will look like the number is lagging behind. This is so because
-//        * the sample size is small. Therefore the probability of having the same value as before
-//        * is higher which visually looks like the program is skipping a number when pressing the
-//        * roll button.*/
-//        rollBtn.setOnClickListener {
-//            if (currentDie != 0) {
-//                rollHistory.push(currentDie)
-//                revertBtn.isEnabled = true
-//            }
-//            rollProgress.visibility = View.VISIBLE
-//            currentDie = Random.nextInt(1, 6)
-//            imageView.setImageResource(getDieImage(currentDie))
-//            Handler().postDelayed({ rollProgress.visibility = View.GONE}, 1000)
-//            rollProgress.visibility = View.INVISIBLE
-//            currentPlayer.points += currentDie
-//            if(currentPlayer.points >= textBox.text.toString().toInt()){
-//                Toast.makeText(applicationContext,
-//                    "You Won: ${currentPlayer.name}",
-//                    Toast.LENGTH_LONG)
-//            }else{
-//                currentPlayer = if(currentPlayer == player1) player2 else player1
-//            }
-//        }
-//        rollBtn.setOnLongClickListener {
-//            imageView.setImageResource(getDieImage(DEFAULT_DIE_SIDE))
-//            currentPlayer = player1
-//            player1.points = 0
-//            player2.points = 0
-//            rollHistory.clear()
-//            revertBtn.isEnabled = false
-//            true
-//        }
-//    }
-//
-//    private fun revertBtnInit() {
-//        revertBtn.isEnabled = false
-//        revertBtn.setOnClickListener {
-//            imageView.setImageResource(getDieImage(rollHistory.pop() ?: 0))
-//            println(rollHistory.toString())
-//            if (rollHistory.isEmpty()) {
-//                revertBtn.isEnabled = false
-//            }
-//        }
-//    }
-
-    private fun rollBtnInit() {
+    private fun rollBtnInitTask4() {
         gameRollBtn.setOnClickListener {
             gameRollProgress.visibility = View.VISIBLE
             currentDie = Random.nextInt(1, 6)
@@ -170,7 +123,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun resetBtnInit() {
+    private fun resetBtnInitTask4() {
         gameResetBtn.setOnClickListener {
             gameImageView.setImageResource(getDieImage(DEFAULT_DIE_SIDE))
             player1.points = 0
