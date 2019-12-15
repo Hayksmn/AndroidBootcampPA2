@@ -61,7 +61,7 @@ class GameScreenFragment : Fragment() {
 
 
         binding.answerButton.setOnClickListener {
-            answer = Random.nextInt(1, 2)
+            answer = Random.nextInt(1, 10)
             println(answer)
             if (guess == answer) {
                 it.findNavController().navigate(R.id.action_gameScreenFragment_to_winScreenFragment)
