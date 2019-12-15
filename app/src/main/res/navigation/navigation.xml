@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation"
+        app:startDestination="@id/registerFragment">
+
+    <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.self.admin.bootcamp.fragments.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register" >
+        <action
+                android:id="@+id/action_registerFragment_to_gameScreenFragment"
+                app:destination="@id/gameScreenFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/gameScreenFragment"
+            android:name="com.self.admin.bootcamp.fragments.GameScreenFragment"
+            android:label="fragment_game_screen"
+            tools:layout="@layout/fragment_game_screen" >
+        <action
+                android:id="@+id/action_gameScreenFragment_to_winScreenFragment"
+                app:destination="@id/winScreenFragment"
+                app:popUpTo="@+id/registerFragment"
+                app:popUpToInclusive="false" />
+        <action
+                android:id="@+id/action_gameScreenFragment_to_gameOverScreenFragment"
+                app:destination="@id/gameOverScreenFragment"
+                app:popUpTo="@+id/registerFragment"
+                app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+            android:id="@+id/winScreenFragment"
+            android:name="com.self.admin.bootcamp.fragments.WinScreenFragment"
+            android:label="fragment_win_screen"
+            tools:layout="@layout/fragment_win_screen" >
+        <action
+                android:id="@+id/action_winScreenFragment_to_gameScreenFragment"
+                app:destination="@id/gameScreenFragment"
+                app:popUpTo="@+id/registerFragment"
+                app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+            android:id="@+id/gameOverScreenFragment"
+            android:name="com.self.admin.bootcamp.fragments.GameOverScreenFragment"
+            android:label="fragment_game_over_screen"
+            tools:layout="@layout/fragment_game_over_screen" >
+        <action
+                android:id="@+id/action_gameOverScreenFragment_to_gameScreenFragment"
+                app:destination="@id/gameScreenFragment"
+                app:popUpTo="@+id/registerFragment"
+                app:popUpToInclusive="false" />
+    </fragment>
+</navigation>

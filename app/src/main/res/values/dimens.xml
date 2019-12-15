@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="register_padding">20dp</dimen>
+    <dimen name="register_form_margin">10dp</dimen>
+
+    <dimen name="message_font_size">30dp</dimen>
+</resources>
