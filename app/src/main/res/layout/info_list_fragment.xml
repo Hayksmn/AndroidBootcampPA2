@@ -9,26 +9,16 @@
                 type="com.self.admin.bootcamp.articleInfo.infoList.InfoListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/article_info_list"
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-                android:id="@+id/word_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="sans-serif"
-                android:text="word"
-                android:textColor="@color/gray"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/article_info_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
 </layout>

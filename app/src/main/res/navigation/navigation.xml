@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation"
+        app:startDestination="@id/infoListFragment">
+    <fragment
+            android:id="@+id/infoListFragment"
+            android:name="com.self.admin.bootcamp.articleInfo.infoList.InfoListFragment"
+            android:label="InfoListFragment" >
+        <action
+                android:id="@+id/action_infoListFragment_to_articleFragment"
+                app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/articleFragment"
+            android:name="com.self.admin.bootcamp.articleInfo.article.ArticleFragment"
+            android:label="ArticleFragment" />
+</navigation>

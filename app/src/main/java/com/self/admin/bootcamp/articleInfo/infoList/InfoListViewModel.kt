@@ -1,28 +1,46 @@
 package com.self.admin.bootcamp.articleInfo.infoList
 
 import androidx.lifecycle.*
-import com.self.admin.bootcamp.articleInfo.database.ArticleInfo
+import androidx.paging.PagedList
+import com.self.admin.bootcamp.articleInfo.api.ArticleList
+import com.self.admin.bootcamp.articleInfo.api.ArticleRepository
 import com.self.admin.bootcamp.articleInfo.database.ArticleInfoDao
 import kotlinx.coroutines.*
 
-class InfoListViewModel(private val database: ArticleInfoDao) : ViewModel() {
+class InfoListViewModel(
+    private val database: ArticleInfoDao,
+    private val articleRepository: ArticleRepository
+) : ViewModel() {
 
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
+    private val _articleInfoList = MutableLiveData<ArticleList>()
 
-    private val _articleInfoList = MutableLiveData<List<ArticleInfo>>()
-    val articleInfoList: LiveData<List<ArticleInfo>>
-        get() = _articleInfoList
+    val articleInfoList: LiveData<PagedList<InfoListItem>> =
+        Transformations.switchMap(_articleInfoList) {
+            it.data
+        }
 
 
-    public fun getListFromDb() = uiScope.launch {
-        withContext(Dispatchers.IO) {
-            Transformations.map(database.getArticleInfoList()) {
-                _articleInfoList.postValue(it)
+    fun getListFromDb() {
+        uiScope.launch {
+            withContext(Dispatchers.IO) {
+                Transformations.map(database.getArticleInfoList()) {
+                    //                    _articleInfoList.postValue(it)
+                }
             }
         }
     }
+
+    fun getListFromNetwork() {
+        uiScope.launch {
+            val articles = articleRepository.getArticles()
+
+            _articleInfoList.postValue(articles)
+        }
+    }
+
 
     override fun onCleared() {
         super.onCleared()

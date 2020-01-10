@@ -20,8 +20,7 @@ abstract class ArticleRoomDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): ArticleRoomDatabase {
             synchronized(this) {
-                var instance =
-                    INSTANCE
+                var instance = INSTANCE
 
                 if (instance == null) {
 

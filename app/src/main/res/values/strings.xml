@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bootcamp</string>
+    <string name="category">Category:%1$s</string>
 </resources>

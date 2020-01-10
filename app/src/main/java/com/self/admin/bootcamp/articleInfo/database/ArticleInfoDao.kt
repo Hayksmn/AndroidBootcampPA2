@@ -16,7 +16,7 @@ interface ArticleInfoDao{
     fun getArticleInfoList(): LiveData<List<ArticleInfo>>
 
     @Query("SELECT * FROM article_info WHERE article_id=:id")
-    fun getArticleInfoById(id: String)
+    fun getArticleInfoById(id: String): LiveData<ArticleInfo>
 
     @Update
     fun updateArticleInfo(articleInfo: ArticleInfo)
