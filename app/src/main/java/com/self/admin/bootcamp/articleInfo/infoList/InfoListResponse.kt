@@ -3,10 +3,10 @@ package com.self.admin.bootcamp.articleInfo.infoList
 import com.self.admin.bootcamp.articleInfo.api.ArticleInfoResponse
 
 data class InfoListResponse(
-    val response: Response
+    val response: InfoResponse
 )
 
-class Response(
+class InfoResponse(
     val status: String,
     val currentPage: Int,
     val pages: Int,

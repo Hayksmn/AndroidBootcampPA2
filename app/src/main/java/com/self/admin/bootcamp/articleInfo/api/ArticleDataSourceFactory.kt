@@ -1,6 +1,5 @@
 package com.self.admin.bootcamp.articleInfo.api
 
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.self.admin.bootcamp.articleInfo.infoList.InfoListItem
 

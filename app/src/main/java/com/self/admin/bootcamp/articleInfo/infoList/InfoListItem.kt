@@ -4,5 +4,6 @@ data class InfoListItem(
     val id: String,
     val title: String,
     val type: String,
-    val thumbnail: String?
+    val thumbnail: String?,
+    val apiUrl: String
 )

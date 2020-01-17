@@ -1,7 +1,6 @@
 package com.self.admin.bootcamp.articleInfo.api
 
 import androidx.paging.PageKeyedDataSource
-import androidx.paging.PagedList
 import com.self.admin.bootcamp.articleInfo.infoList.InfoListItem
 import com.self.admin.bootcamp.articleInfo.infoList.InfoListResponse
 import kotlinx.coroutines.CoroutineScope
@@ -45,7 +44,7 @@ class ArticleDataSource(
 
     private fun InfoListResponse.mapToInfoListItem(): List<InfoListItem> {
         return response.results.map {
-            InfoListItem(it.id, it.webTitle, it.type, it.thumbnail)
+            InfoListItem(it.id, it.webTitle, it.type, it.thumbnail, it.apiUrl)
         }
     }
 

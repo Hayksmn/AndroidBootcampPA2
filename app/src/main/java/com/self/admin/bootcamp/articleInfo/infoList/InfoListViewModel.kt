@@ -1,6 +1,7 @@
 package com.self.admin.bootcamp.articleInfo.infoList
 
 import androidx.lifecycle.*
+import androidx.navigation.fragment.NavHostFragment
 import androidx.paging.PagedList
 import com.self.admin.bootcamp.articleInfo.api.ArticleList
 import com.self.admin.bootcamp.articleInfo.api.ArticleRepository
@@ -23,15 +24,15 @@ class InfoListViewModel(
         }
 
 
-    fun getListFromDb() {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                Transformations.map(database.getArticleInfoList()) {
-                    //                    _articleInfoList.postValue(it)
-                }
-            }
-        }
-    }
+//    fun getListFromDb() {
+//        uiScope.launch {
+//            withContext(Dispatchers.IO) {
+//                Transformations.map(database.getArticleInfoList()) {
+//                    //                    _articleInfoList.postValue(it)
+//                }
+//            }
+//        }
+//    }
 
     fun getListFromNetwork() {
         uiScope.launch {
